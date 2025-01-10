@@ -1,3 +1,4 @@
+---Business Request 5: Identify Month with Highest Revenue for Each City---
 WITH monthly_revenue AS (
     SELECT 
         city_id, 
@@ -19,7 +20,7 @@ highest_month_revenue AS (
         mr.month_name,
         mr.revenue,
         ctr.total_revenue,
-        ROUND((mr.revenue * 100.0 / ctr.total_revenue), 2) AS percentage_contribution
+        ROUND((mr.revenue * 100.0 / ctr.total_revenue), 2) AS percentage_contribution ----Caluclate Percentage Contribution--
     FROM monthly_revenue mr
     JOIN city_total_revenue ctr
         ON mr.city_id = ctr.city_id
