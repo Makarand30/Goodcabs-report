@@ -1,3 +1,5 @@
+----Business Request - 3: City-Level Repeat Passenger Trip Frequency Report---
+
 WITH frequency_distribution AS (
     SELECT 
         city_id, 
@@ -12,7 +14,7 @@ WITH frequency_distribution AS (
         city_id, trip_count
 )
 SELECT 
-    c.city_name,
+    c.city_name,----------Calculate frequency distribution---
     ROUND(SUM(CASE WHEN trip_count = 2 THEN total_repeat_passenger ELSE 0 END) * 100.0 / MAX(city_total_repeat_passenger), 2) AS "2-Trips",
     ROUND(SUM(CASE WHEN trip_count = 3 THEN total_repeat_passenger ELSE 0 END) * 100.0 / MAX(city_total_repeat_passenger), 2) AS "3-Trips",
     ROUND(SUM(CASE WHEN trip_count = 4 THEN total_repeat_passenger ELSE 0 END) * 100.0 / MAX(city_total_repeat_passenger), 2) AS "4-Trips",
@@ -30,3 +32,4 @@ GROUP BY
     c.city_name
 ORDER BY 
     c.city_name;
+
