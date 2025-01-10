@@ -1,3 +1,4 @@
+---Business Request - 1: City-Level Fare and Trip Summary Report---
 SELECT 
     city_id,
     COUNT(trip_id) AS total_trips,
